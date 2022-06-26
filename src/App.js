@@ -1,11 +1,17 @@
 import './App.css';
+import { Header } from './component/Header';
+import { Footer } from './component/Footer';
 
-function App() {
+const App = () => {
   return (
     <div>
-      My App
+      <Header />
+      <main>
+          <h1>Hello</h1>
+      </main>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
