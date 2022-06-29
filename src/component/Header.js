@@ -1,10 +1,10 @@
 import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
-import { 
-  Box, 
-  AppBar, 
+import {
+  Box,
+  AppBar,
   Toolbar,
-  IconButton,  
+  IconButton,
   Typography,
   Badge,
   InputBase,
@@ -15,6 +15,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MoreIcon from '@mui/icons-material/MoreVert';
+
+/* eslint-disable import/prefer-default-export */
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -56,78 +58,76 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export const Header = () => {
-  return (
-    <div>
-        <header>
-          <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" style={{ backgroundColor: '#4d4d4d' }}>
-              <Toolbar>
+export const Header = () => (
+  <div>
+    <header>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" style={{ backgroundColor: '#4d4d4d' }}>
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Link href="/" underline="none" color="white">
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ display: { xs: 'none', sm: 'block' } }}
+              >
+                <b>PROSHOP</b>
+              </Typography>
+            </Link>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              <Link href="/cart" underline="none" color="white">
+                <IconButton size="large" color="inherit">
+                  <Badge badgeContent={4} color="error">
+                    <ShoppingCartOutlinedIcon />
+                  </Badge>
+                </IconButton>
+              </Link>
+              <Link href="/login" underline="none" color="white">
                 <IconButton
                   size="large"
-                  edge="start"
+                  edge="end"
+                  aria-label="account of current user"
+                  // aria-controls={menuId}
+                  aria-haspopup="true"
                   color="inherit"
-                  aria-label="open drawer"
-                  sx={{ mr: 2 }}
                 >
-                  <MenuIcon />
+                  <AccountCircle />
                 </IconButton>
-                <Link href='/' underline='none' color="white">
-                  <Typography
-                    variant="h6"
-                    noWrap
-                    component="div"
-                    sx={{ display: { xs: 'none', sm: 'block' } }}
-                  >
-                    <b>PROSHOP</b>
-                  </Typography>
-                </Link>
-                <Search>
-                  <SearchIconWrapper>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase
-                    placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }}
-                  />
-                </Search>
-                <Box sx={{ flexGrow: 1 }} />
-                <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                  <Link href='/cart' underline='none' color="white">
-                    <IconButton size="large" color="inherit">
-                      <Badge badgeContent={4} color="error">
-                        <ShoppingCartOutlinedIcon />
-                      </Badge>
-                    </IconButton>
-                  </Link>
-                  <Link href='/login' underline='none' color="white">
-                    <IconButton
-                      size="large"
-                      edge="end"
-                      aria-label="account of current user"
-                      // aria-controls={menuId}
-                      aria-haspopup="true"
-                      color="inherit"
-                    >
-                      <AccountCircle />
-                    </IconButton>
-                  </Link>
-                </Box>
-                <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                  <IconButton
-                    size="large"
-                    aria-label="show more"
-                    // aria-controls={mobileMenuId}
-                    aria-haspopup="true"
-                    color="inherit"
-                  >
-                    <MoreIcon />
-                  </IconButton>
-                </Box>
-              </Toolbar>
-            </AppBar>
-          </Box>
-        </header>
-    </div>
-  )
-};
+              </Link>
+            </Box>
+            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                // aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </header>
+  </div>
+);
