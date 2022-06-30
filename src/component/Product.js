@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardMedia, CardContent, Typography, Link } from '@mui/material';
+import { Rating } from "./Rating";
 
 export const Product = ({ product }) => {
     return (
@@ -13,14 +14,14 @@ export const Product = ({ product }) => {
             </Link>
             <CardContent>
                 <Link href={`/product/${product._id}`}>
-                    <Typography gutterBottom variant="p" component="div">
+                    <Typography gutterBottom variant="p" component="div" style={{ minHeight: 55 }}>
                         {product.name}
                     </Typography>
                 </Link>
                 <Typography variant="body2" color="text.secondary">
-                    {`${product.rating} from ${product.numReviews} reviews`}
+                    <Rating value={product.rating} text={`${product.numReviews} reviews`} color={'#fee227'} />
                 </Typography>
-                <Typography variant="h5" color="black">
+                <Typography variant="h5" color="black" style={{ marginTop: 3 }}>
                     {`$${product.price}`}
                 </Typography>           
             </CardContent>
