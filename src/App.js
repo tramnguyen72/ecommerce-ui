@@ -1,17 +1,22 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Header } from './component/Header';
 import { Footer } from './component/Footer';
 import { HomeScreen } from './screens/HomeScreen';
+import { ProductScreen } from './screens/ProductScreen';
 
 const App = () => {
   return (
-    <div>
+    <Router>
       <Header />
       <main>
-          <HomeScreen />
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/product/:id" element={<ProductScreen />} />
+        </Routes>
       </main>
       <Footer />
-    </div>
+    </Router>
   );
 };
 

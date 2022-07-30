@@ -1,11 +1,12 @@
 import React from "react";
-import { Card, CardMedia, CardContent, Typography, Link } from '@mui/material';
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
 import { Rating } from "./Rating";
+import { Link } from 'react-router-dom';
 
 export const Product = ({ product }) => {
     return (
         <Card sx={{ maxWidth: 250, marginRight: 5, marginBottom: 5 }} variant="outlined">
-            <Link href={`/product/${product._id}`}>
+            <Link to={`/product/${product._id}`}>
                 <CardMedia
                     component="img"
                     image={product.image}
@@ -13,7 +14,7 @@ export const Product = ({ product }) => {
                 />
             </Link>
             <CardContent>
-                <Link href={`/product/${product._id}`}>
+                <Link to={`/product/${product._id}`}>
                     <Typography gutterBottom variant="p" component="div" style={{ minHeight: 55 }}>
                         {product.name}
                     </Typography>

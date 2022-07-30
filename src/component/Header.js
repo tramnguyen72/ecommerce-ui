@@ -15,6 +15,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -72,7 +73,7 @@ export const Header = () => {
                 >
                   <MenuIcon />
                 </IconButton>
-                <Link href='/' underline='none' color="white">
+                <Link component={RouterLink} to='/' underline='none' color="white">
                   <Typography
                     variant="h6"
                     noWrap
@@ -93,14 +94,14 @@ export const Header = () => {
                 </Search>
                 <Box sx={{ flexGrow: 1 }} />
                 <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                  <Link href='/cart' underline='none' color="white">
+                  <Link to='/cart' underline='none' color="white" component={RouterLink}>
                     <IconButton size="large" color="inherit">
                       <Badge badgeContent={4} color="error">
                         <ShoppingCartOutlinedIcon />
                       </Badge>
                     </IconButton>
                   </Link>
-                  <Link href='/login' underline='none' color="white">
+                  <Link to='/login' underline='none' color="white" component={RouterLink}>
                     <IconButton
                       size="large"
                       edge="end"
